@@ -1,7 +1,9 @@
+import { db } from '$lib/server/db';
+import { userTable } from '$lib/server/schema';
 import { Elysia, t } from 'elysia';
 
 const app = new Elysia({ prefix: '/api' })
-	.get('/', () => 'Hello world')
+	.get('/', () => db.select().from(userTable))
 	.post('/', ({ body }) => body, {
 		body: t.Object({
 			name: t.String()

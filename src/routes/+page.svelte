@@ -3,8 +3,9 @@
 	type Props = { data: PageData };
 
 	let { data }: Props = $props();
-	let name = $state(data.name);
+	let names = $state(data.data);
 </script>
 
-<h1>Welcome to {name}</h1>
-<button onclick={() => (name += 't')}>Change name</button>
+{#each names as name}
+	<h1>Welcome to {name.id}</h1>
+{/each}
