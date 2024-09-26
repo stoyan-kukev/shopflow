@@ -6,7 +6,5 @@ const backend = treaty<Backend>('http://localhost:5173');
 export async function load() {
 	const { data, error } = await backend.api.index.get();
 
-	if (error) throw new Error('bad');
-
 	return { data };
 }
