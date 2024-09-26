@@ -7,8 +7,10 @@
 	let names = $state(data.data);
 </script>
 
-<!-- {#each names as name}
-	<h1>Welcome to {name.id}</h1>
-{/each} -->
+{#if names}
+	{#each names as { username }}
+		<h1>Welcome to {username}</h1>
+	{/each}
+{/if}
 
-<a href="/logout"><button>Log out</button></a>
+<a href="/logout" data-sveltekit-preload-data="false"><button>Log out</button></a>

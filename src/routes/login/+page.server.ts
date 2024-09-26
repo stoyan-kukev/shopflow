@@ -29,7 +29,7 @@ export const actions: Actions = {
 		}
 
 		const existingUser = await db.select().from(userTable).where(eq(userTable.username, username));
-		if (!existingUser) {
+		if (existingUser.length == 0) {
 			return fail(400, {
 				message: 'Incorrect username or password'
 			});
